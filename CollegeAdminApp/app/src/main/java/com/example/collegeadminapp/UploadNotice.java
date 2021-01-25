@@ -48,7 +48,7 @@ public class UploadNotice extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQ && requestCode == RESULT_OK) {
+        if (requestCode == REQ && resultCode == RESULT_OK && null != data) {
             Uri imageUri = data.getData();
 
             try {
@@ -58,7 +58,6 @@ public class UploadNotice extends AppCompatActivity {
             }
 
             noticeImageView.setImageBitmap(bitmapImage);
-
 
         }
     }
