@@ -20,7 +20,14 @@
             android:layout_margin="10dp"
             android:elevation="5dp">
 
+            <ImageView
+                android:id="@+id/noticeImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
             <LinearLayout
+                android:id="@+id/uploadIconWidget"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -60,14 +67,31 @@
             android:layout_marginHorizontal="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/noticeTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="Notice Title" />
 
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/noticeDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Notice Description"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/uploadNoticeButton"
+            android:id="@+id/uploadNoticeBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -75,19 +99,7 @@
             android:text="Upload Notice"
             android:textAllCaps="false" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:elevation="10dp">
 
-            <ImageView
-                android:id="@+id/noticeImageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
-        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 </ScrollView>
