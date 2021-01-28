@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="20dp"
-    tools:context=".UploadNotice">
+    tools:context=".UploadPdf">
 
 
     <LinearLayout
@@ -14,17 +14,12 @@
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/addImage"
+            android:id="@+id/addPdf"
             android:layout_width="130dp"
             android:layout_height="150dp"
             android:layout_margin="10dp"
             android:elevation="5dp">
 
-            <ImageView
-                android:id="@+id/noticeImageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
 
             <LinearLayout
                 android:id="@+id/uploadIconWidget"
@@ -38,7 +33,7 @@
                     android:layout_height="64dp"
                     android:background="@drawable/circle_yellow"
                     android:padding="15dp"
-                    android:src="@drawable/ic_add_image" />
+                    android:src="@drawable/ic_upload" />
 
                 <View
                     android:layout_width="match_parent"
@@ -51,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:padding="5dp"
-                    android:text="Upload Image"
+                    android:text="Upload Pdf"
 
                     android:textStyle="bold" />
 
@@ -67,36 +62,20 @@
             android:layout_marginHorizontal="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/noticeTitle"
+                android:id="@+id/pdfTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Notice Title" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/noticeDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Notice Description"
-                android:inputType="text" />
+                android:hint="Pdf Title" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/uploadNoticeBtn"
+            android:id="@+id/uploadPdfBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
-            android:text="Upload Notice"
+            android:text="Upload Pdf"
             android:textAllCaps="false" />
 
 
