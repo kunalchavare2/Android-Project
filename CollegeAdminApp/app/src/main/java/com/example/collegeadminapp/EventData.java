@@ -2,38 +2,19 @@ package com.example.collegeadminapp;
 
 import java.util.ArrayList;
 
-public class NoticeData {
-    String title, description, date, time, key;
+public class EventData {
+    String category, date, time, key;
     ArrayList<String> imageUrls;
 
-
-    public NoticeData() {
+    public EventData() {
     }
 
-
-    public NoticeData(String title, String description, ArrayList<String> imageUrls, String date, String time, String key) {
-        this.title = title;
-        this.description = description;
-        this.imageUrls = imageUrls;
+    public EventData(String category, String date, String time, String key, ArrayList<String> imageUrls) {
+        this.category = category;
         this.date = date;
         this.time = time;
         this.key = key;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+        this.imageUrls = imageUrls;
     }
 
     public ArrayList<String> getImageUrls() {
@@ -42,6 +23,14 @@ public class NoticeData {
 
     public void setImageUrls(ArrayList<String> imageUrls) {
         this.imageUrls = imageUrls;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getDate() {
