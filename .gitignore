@@ -8,3 +8,6 @@
 /build
 /captures
 .externalNativeBuild
+/CollegeAdminApp/.idea/
+/.idea/modules.xml
+/.idea/vcs.xml
