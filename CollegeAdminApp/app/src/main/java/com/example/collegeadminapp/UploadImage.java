@@ -36,18 +36,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class UploadImage extends AppCompatActivity {
+    private final int REQ = 1;
     private Spinner imageCategory;
     private CardView selectImage;
     private Button uploadImage;
     private ImageView eventImageView;
     private LinearLayout uploadIconWidget;
     private ProgressDialog progressDialog;
-
     private ArrayList<Bitmap> bitmapImageList = new ArrayList<Bitmap>();
     private String category;
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
-    private final int REQ = 1;
     private ArrayList<String> imageDownloadUriList = new ArrayList<String>();
 
 

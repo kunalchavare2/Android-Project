@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -35,15 +34,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class UploadNotice extends AppCompatActivity {
+    private final int REQ = 1;
     private CardView addImage;
     private ImageView noticeImageView;
     private EditText noticeTitle, noticeDescription;
     private Button uploadNoticeBtn;
     private ProgressDialog progressDialog;
     private LinearLayout uploadIconWidget;
-
-
-    private final int REQ = 1;
     private DatabaseReference reference;
     private StorageReference storageReference;
     private ArrayList<Bitmap> bitmapImageList = new ArrayList<Bitmap>();
