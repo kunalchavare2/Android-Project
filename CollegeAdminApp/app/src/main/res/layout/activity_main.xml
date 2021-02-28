@@ -3,8 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Collage Admin App"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -144,7 +159,7 @@
 
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/faculty"
+            android:id="@+id/updateFaculty"
             android:layout_width="130dp"
             android:layout_height="150dp"
             android:layout_margin="10dp"
