@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.NoActionBar">
+        <activity android:name=".faculty.FacultyDetails"></activity>
         <activity android:name=".faculty.FacultyList" />
         <activity android:name=".faculty.UpdateFaculty" />
         <activity android:name=".faculty.AddFaculty" />

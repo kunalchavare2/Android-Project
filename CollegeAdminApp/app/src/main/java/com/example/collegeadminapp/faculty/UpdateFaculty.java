@@ -16,6 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.collegeadminapp.R;
+import com.example.collegeadminapp.UploadImage;
+import com.example.collegeadminapp.UploadNotice;
+import com.example.collegeadminapp.UploadPdf;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,8 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdateFaculty extends AppCompatActivity {
-    private CardView csDept;
+public class UpdateFaculty extends AppCompatActivity implements View.OnClickListener {
+    private CardView csDept, itDept, machDept, civilDept, entcDept, electricDept, autoDept;
     private FloatingActionButton fab;
     Toolbar updateFacultyToolbar;
    // private RecyclerView csDept, itDept, machDept, civilDept, entcDept, electricDept, autoDept;
@@ -57,24 +60,23 @@ public class UpdateFaculty extends AppCompatActivity {
         updateFacultyToolbar =findViewById(R.id.topAppBar);
         setSupportActionBar(updateFacultyToolbar);
 
-        csDept = findViewById(R.id.csDept);
+        fab = findViewById(R.id.addFacultyFab);
 
-        csDept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =new Intent(UpdateFaculty.this,FacultyList.class);
-                intent.putExtra("extra", "Computer ");
-                startActivity(intent);
-            }
-        });
+        csDept = findViewById(R.id.csDeptCard);
+        electricDept = findViewById(R.id.electricDeptCard);
+        entcDept = findViewById(R.id.entcDeptCard);
+        civilDept = findViewById(R.id.civilDeptCard);
+        itDept = findViewById(R.id.itDeptCard);
+        machDept = findViewById(R.id.machDeptCard);
+        autoDept = findViewById(R.id.autoDeptCard);
 
-//        csDept = findViewById(R.id.csDept);
-//        electricDept = findViewById(R.id.electricDept);
-//        entcDept = findViewById(R.id.entcDept);
-//        civilDept = findViewById(R.id.civilDept);
-//        itDept = findViewById(R.id.itDept);
-//        machDept = findViewById(R.id.machDept);
-//        autoDept = findViewById(R.id.autoDept);
+        csDept.setOnClickListener(this);
+        electricDept.setOnClickListener(this);
+        entcDept.setOnClickListener(this);
+        civilDept.setOnClickListener(this);
+        itDept.setOnClickListener(this);
+        machDept.setOnClickListener(this);
+        autoDept.setOnClickListener(this);
 //
 //
 //        csDeptNoData = findViewById(R.id.csNoData);
@@ -85,7 +87,7 @@ public class UpdateFaculty extends AppCompatActivity {
 //        machDeptNoData = findViewById(R.id.machDeptNoData);
 //        autoDeptNoData = findViewById(R.id.autoDeptNoData);
 
-//        fab = findViewById(R.id.addFacultyFab);
+
 //
 //        setDeptRecyclerView("Computer", csDeptList, csDept, csDeptNoData);
 //        setDeptRecyclerView("Electronics & Telecommunication", entcDeptList, entcDept, entcDeptNoData);
@@ -95,13 +97,13 @@ public class UpdateFaculty extends AppCompatActivity {
 //        setDeptRecyclerView("Civil", civilDeptList, civilDept, civilDeptNoData);
 //        setDeptRecyclerView("Auto Mobile", autoDeptList, autoDept, autoDeptNoData);
 //
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(UpdateFaculty.this, AddFaculty.class);
-//                startActivity(intent);
-//            }
-//        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdateFaculty.this, AddFaculty.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -109,6 +111,41 @@ public class UpdateFaculty extends AppCompatActivity {
         AsyncTaskRunner runner = new AsyncTaskRunner(departmentName,deptList,deptRecyclerView,noData);
 
         runner.execute();
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        intent = new Intent(this, FacultyList.class);
+        switch (v.getId()) {
+            case R.id.csDeptCard:
+                intent.putExtra("department", "Computer");
+                break;
+            case R.id.itDeptCard:
+                intent.putExtra("department", "Information Technology");
+
+                break;
+            case R.id.machDeptCard:
+                intent.putExtra("department", "Mechanical");
+
+                break;
+            case R.id.autoDeptCard:
+                intent.putExtra("department", "Auto Mobile");
+                break;
+            case R.id.civilDeptCard:
+                intent.putExtra("department", "Civil");
+                break;
+            case R.id.electricDeptCard:
+                intent.putExtra("department", "Electrical");
+                break;
+            case R.id.entcDeptCard:
+                intent.putExtra("department", "Electronic and Telecommunication");
+                break;
+            default:
+                Toast.makeText(this, "Invalid Navigation!", Toast.LENGTH_SHORT).show();
+                return ;
+        }
+        startActivity(intent);
     }
 
 
@@ -199,6 +236,7 @@ public class UpdateFaculty extends AppCompatActivity {
 
         @Override
         protected void onProgressUpdate(String... text) {
+
 
         }
     }

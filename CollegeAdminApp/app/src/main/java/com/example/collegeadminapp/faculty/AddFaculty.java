@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.collegeadminapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,11 +32,13 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddFaculty extends AppCompatActivity {
     private ImageView addFacultyImage;
     private EditText addFacultyName, addFacultyDescription, addFacultyEmail;
-    private Spinner addFacultyCategory;
+    private Spinner addFacultyDepartment;
     private Button addFacultybtn;
     private ProgressDialog progressDialog;
     private StorageReference storageReference;
@@ -43,6 +46,7 @@ public class AddFaculty extends AppCompatActivity {
     private final int REQ = 1;
     private String name, email, description, department, downloadUrl = "";
     private Bitmap facultyImage = null;
+    private String facultyName, facultyDepartment, facultyEmail, facultyImageUrl, facultyDescription, facultyKey;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,27 +54,42 @@ public class AddFaculty extends AppCompatActivity {
 
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         progressDialog = new ProgressDialog(this);
+
+        //Get Data to update faculty
+        facultyDepartment = getIntent().getStringExtra("department");
+        facultyName = getIntent().getStringExtra("name");
+        facultyEmail = getIntent().getStringExtra("email");
+        facultyImageUrl = getIntent().getStringExtra("imageUrl");
+        facultyDescription = getIntent().getStringExtra("description");
+        facultyKey = getIntent().getStringExtra("key");
+
 
         addFacultyImage = findViewById(R.id.addFacultyImage);
         addFacultyName = findViewById(R.id.addFacultyName);
         addFacultyEmail = findViewById(R.id.addFacultyEmail);
         addFacultyDescription = findViewById(R.id.addFacultyDescription);
-        addFacultyCategory = findViewById(R.id.facultyCategory);
+        addFacultyDepartment = findViewById(R.id.facultyCategory);
         addFacultybtn = findViewById(R.id.addFacultyBtn);
 
-        String[] items = new String[]{
-                "Select Category", "Computer", "Electronics & Telecommunication", "Mechanical", "Auto Mobile",
-                "Electrical", "Information Technology", "Civil"
-        };
-        addFacultyCategory.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items));
 
-        addFacultyCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        List<String> items = new ArrayList<>();
+        items.add("Select Category");
+        items.add("Computer");
+        items.add("Electronics & Telecommunication");
+        items.add("Mechanical");
+        items.add("Auto Mobile");
+        items.add("Electrical");
+        items.add("Information Technology");
+        items.add("Civil");
+
+        addFacultyDepartment.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items));
+
+        addFacultyDepartment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //to avoid inserting "Select category" in department variable
-                department = position > 0 ? addFacultyCategory.getSelectedItem().toString() : "";
+                department = position > 0 ? addFacultyDepartment.getSelectedItem().toString() : "";
             }
 
             @Override
@@ -78,6 +97,17 @@ public class AddFaculty extends AppCompatActivity {
 
             }
         });
+
+
+        if (facultyKey != null) {
+            addFacultybtn.setText("Update Faculty");
+            Glide.with(this).load(facultyImageUrl).into(addFacultyImage);
+            addFacultyName.setText(facultyName);
+            addFacultyDescription.setText(facultyDescription);
+            addFacultyDepartment.setSelection(items.indexOf(facultyDepartment));
+            addFacultyEmail.setText(facultyEmail);
+        }
+
 
         addFacultyImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +120,15 @@ public class AddFaculty extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validate()) {
-                    uploadImage();
+                    //this is used to check whether faculty image is selected from local
+                    //Storage if yes then upload image to firebase
+                    if(facultyImage != null){
+                        uploadImage();
+                    }else{
+
+                        uploadData();
+                    }
+
                 }
             }
         });
@@ -125,14 +163,15 @@ public class AddFaculty extends AppCompatActivity {
 
 
     private boolean validate() {
+        String errorString = "";
         name = addFacultyName.getText().toString();
         email = addFacultyEmail.getText().toString();
         description = addFacultyDescription.getText().toString();
-        if (!name.isEmpty() && !email.isEmpty() && !description.isEmpty() && !department.isEmpty() && facultyImage != null) {
+        if (!name.isEmpty() && !email.isEmpty() && !description.isEmpty() && !department.isEmpty() && ( facultyImage != null || facultyImageUrl != null)) {
             return true;
         }
-        String errorString = "";
-        if (facultyImage == null) {
+
+        if (facultyImage == null && facultyImageUrl ==null) {
             errorString = "Image ";
         }
 
@@ -162,10 +201,23 @@ public class AddFaculty extends AppCompatActivity {
     private void uploadData() {
         progressDialog.setMessage("Uploading Data...");
         databaseReference = databaseReference.child("Faculty");
+        final String uniqueKey;
 
-        final String uniqueKey = databaseReference.push().getKey();
+        if(facultyKey != null){
+            if(downloadUrl.isEmpty()){
+                // set download url to previous image url get from update data
+                downloadUrl = facultyImageUrl;
+            }
+            uniqueKey = facultyKey;
+        }else{
+            uniqueKey = databaseReference.push().getKey();
+        }
+if(!facultyDepartment.equals(department)){
+    databaseReference.child(facultyDepartment).child(facultyKey).removeValue();
+}
 
         Faculty faculty = new Faculty(name, email, description, department, downloadUrl, uniqueKey);
+
 
         databaseReference.child(department).child(uniqueKey).setValue(faculty).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -181,7 +233,6 @@ public class AddFaculty extends AppCompatActivity {
                 Toast.makeText(AddFaculty.this, "Failed to add the Faculty!", Toast.LENGTH_SHORT).show();
             }
         });
-
 
     }
 
@@ -212,7 +263,7 @@ public class AddFaculty extends AppCompatActivity {
                                 public void onSuccess(Uri uri) {
                                     downloadUrl = String.valueOf(uri);
 
-                                   // Toast.makeText(AddFaculty.this, String.valueOf(uri), Toast.LENGTH_SHORT).show();
+                                    // Toast.makeText(AddFaculty.this, String.valueOf(uri), Toast.LENGTH_SHORT).show();
                                     uploadData();
 
                                 }
