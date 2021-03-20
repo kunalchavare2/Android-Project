@@ -1,3 +1,30 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Collage App</string>
+
+
+    <string name="bold" tools:ignore="ReferenceType">@font/opensansbold</string>
+    <string name="light" tools:ignore="ReferenceType">@font/opensanslight</string>
+    <string name="regular" tools:ignore="ReferenceType">@font/opensansregular</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+
+
+    <string name="about_collage">Dr.D.Y.Patil School of Engineering is one of the most prestigious academic groups in the state of Maharashtra which comes under the aegis of the Dr.D.Y.Patil Technical Campus. Dr.D.Y.Patil School of Engineering. Lohegoan(DYPSOE),Pune,was established in 2010 under DYPTC by the Chairman of D.Y.Patil Group honorable Dr.Ajeenkye D.Y.Patil.The institute offers four UG Programs (B.E), three PG Programs(M.E)and two Diploma programs.</string>
+
+
+
 </resources>
