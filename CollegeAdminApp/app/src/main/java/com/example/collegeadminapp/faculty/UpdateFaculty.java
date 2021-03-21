@@ -16,9 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.collegeadminapp.R;
-import com.example.collegeadminapp.UploadImage;
-import com.example.collegeadminapp.UploadNotice;
-import com.example.collegeadminapp.UploadPdf;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

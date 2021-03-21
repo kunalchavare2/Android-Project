@@ -1,4 +1,4 @@
-package com.example.collegeadminapp;
+package com.example.collegeadminapp.notice;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.collegeadminapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

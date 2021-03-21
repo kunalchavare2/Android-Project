@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/facultyImage"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+
+                android:layout_gravity="center"
+                android:layout_marginVertical="0dp"
+                android:src="@mipmap/img_avatar"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+            <TextView
+                android:id="@+id/noticeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Collage Admin App"
+                android:layout_marginStart="16dp"
+                android:textSize="18sp"
+                android:textColor="@color/whiteTextColor"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/deleteNoticeBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:layout_marginStart="-100dp"
+                android:textColor="@color/red2"
+                app:strokeColor="@color/red2"
+
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/noticeDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sfljsjflh;lasdhflsd"
+            android:textSize="17sp"
+            android:textColor="@color/grey"/>
+
+        <ImageView
+            android:id="@+id/noticeImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:maxHeight="300dp"
+            android:adjustViewBounds="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:scaleType="centerInside"
+          />
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

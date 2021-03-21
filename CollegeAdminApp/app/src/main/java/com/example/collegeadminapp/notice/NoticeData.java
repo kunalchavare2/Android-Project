@@ -1,4 +1,4 @@
-package com.example.collegeadminapp;
+package com.example.collegeadminapp.notice;
 
 import java.util.ArrayList;
 

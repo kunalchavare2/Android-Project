@@ -6,13 +6,14 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.example.collegeadminapp.faculty.UpdateFaculty;
+import com.example.collegeadminapp.notice.DeleteNotice;
+import com.example.collegeadminapp.notice.UploadNotice;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private CardView addNotice, addImage, addEbook,updateFaculty;
+    private CardView addNotice, addImage, addEbook,updateFaculty,deleteNotice;
 
 
     @Override
@@ -25,11 +26,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addImage = findViewById(R.id.addImage);
         addEbook = findViewById(R.id.addEbook);
         updateFaculty = findViewById(R.id.updateFaculty);
+        deleteNotice = findViewById(R.id.deleteNotice);
+
 
         addNotice.setOnClickListener(this);
         addImage.setOnClickListener(this);
         addEbook.setOnClickListener(this);
         updateFaculty.setOnClickListener(this);
+        deleteNotice.setOnClickListener(this);
 
 
     }
@@ -53,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.updateFaculty:
                 intent = new Intent(this, UpdateFaculty.class);
+                startActivity(intent);
+                break;
+            case R.id.deleteNotice:
+                intent = new Intent(this, DeleteNotice.class);
                 startActivity(intent);
                 break;
             default:
