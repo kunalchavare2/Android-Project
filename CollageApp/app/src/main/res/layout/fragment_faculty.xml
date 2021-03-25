@@ -3,14 +3,232 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.faculty.FacultyFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_gravity="center"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Faculty" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/csDeptCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardPreventCornerOverlap="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_csdept"
+                        android:minHeight="100dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            style="@style/homeCardImage"
+                            android:maxHeight="90dp"
+                            android:src="@drawable/cs_dept" />
+
+                        <TextView
+                            android:id="@+id/textViewSub1Title"
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:text="Computer" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/autoDeptCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardPreventCornerOverlap="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_autodept"
+                        android:minHeight="100dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            style="@style/homeCardImage"
+                            android:maxHeight="90dp"
+                            android:src="@drawable/auto_dept" />
+
+                        <TextView
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:text="Auto Mobile" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/entcDeptCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardPreventCornerOverlap="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_entcdept"
+                        android:minHeight="100dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            style="@style/homeCardImage"
+                            android:maxHeight="90dp"
+                            android:src="@drawable/entc_dept" />
+
+                        <TextView
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:text="Electronic &amp; Telecommunication" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/civilDeptCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardPreventCornerOverlap="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_civildept"
+                        android:minHeight="100dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            style="@style/homeCardImage"
+                            android:maxHeight="90dp"
+                            android:src="@drawable/civil_dept" />
+
+                        <TextView
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:text="Civil" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/itDeptCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardPreventCornerOverlap="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_itdept"
+                        android:minHeight="100dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            style="@style/homeCardImage"
+                            android:maxHeight="90dp"
+                            android:src="@drawable/it_dept"
+                            />
+
+                        <TextView
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:text="Information Technology" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/machDeptCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardPreventCornerOverlap="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_machdept"
+                        android:minHeight="100dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            style="@style/homeCardImage"
+                            android:maxHeight="90dp"
+                            android:src="@drawable/mach_dept" />
+
+                        <TextView
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:text="Machanical" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/electricDeptCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardPreventCornerOverlap="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_electricdept"
+                        android:minHeight="100dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            style="@style/homeCardImage"
+                            android:maxHeight="90dp"
+                            android:src="@drawable/electric_dept" />
+
+                        <TextView
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:text="Electrical" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

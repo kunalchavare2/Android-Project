@@ -3,11 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notice.NoticeFragment">
-
+    tools:context=".ui.gallery.EventGallery">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/deleteNoticeRecyclerView"
+        android:id="@+id/eventGalleryRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
