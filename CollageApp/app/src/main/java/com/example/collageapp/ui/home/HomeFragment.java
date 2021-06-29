@@ -29,9 +29,9 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     private static final String MAPVIEW_BUNDLE_KEY = "AIzaSyC1-GFIPwYRtSr4smziSnq6kLQ2voPj1IA";
 
     int[] images = {R.drawable.collage};
-    String url1 = "https://www.geeksforgeeks.org/wp-content/uploads/gfg_200X200-1.png";
-    String url2 = "https://qphs.fs.quoracdn.net/main-qimg-8e203d34a6a56345f86f1a92570557ba.webp";
-    String url3 = "https://bizzbucket.co/wp-content/uploads/2020/08/Life-in-The-Metro-Blog-Title-22.png";
+    String url1 = "https://firebasestorage.googleapis.com/v0/b/collage-admin-app.appspot.com/o/collage%2Foxford3.jpg?alt=media&token=44722185-e1af-423f-afb6-64b40bd18f3d";
+    String url2 = "https://firebasestorage.googleapis.com/v0/b/collage-admin-app.appspot.com/o/collage%2Foxford2.jpg?alt=media&token=b1f2ce2a-4b86-4af3-a75f-5b40e7df3089";
+    String url3 = "https://firebasestorage.googleapis.com/v0/b/collage-admin-app.appspot.com/o/collage%2Foxford.jpg?alt=media&token=be2baec8-07fd-43bc-bc99-def8e726962c";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

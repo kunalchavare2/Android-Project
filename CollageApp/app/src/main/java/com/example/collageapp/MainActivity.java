@@ -1,6 +1,7 @@
 package com.example.collageapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -20,14 +21,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    Toolbar toolbar;
+    ActionBar actionBar;
     private BottomNavigationView bottomNavigationView;
     private NavController navController;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
-    Toolbar toolbar;
-    ActionBar actionBar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,26 +60,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_developers:
-                Toast.makeText(this, "Developers", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_ebook:
-              startActivity(new Intent(this, EbookActivity.class));
-                break;
-            case R.id.nav_about:
-                Toast.makeText(this, "Developers", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_website:
-                Toast.makeText(this, "Developers", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Kunal\nHarshal\nPrathamesh", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_share:
-                Toast.makeText(this, "Developers", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_videoLectures:
-                Toast.makeText(this, "Developers", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "avaliable when uploaded to playstore ", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_rate:
-                Toast.makeText(this, "Developers", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "avaliable when uploaded to playstore ", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.nav_ebook:
+                startActivity(new Intent(this, EbookActivity.class));
+                break;
+//            case R.id.nav_about:
+//                Intent mIntent=new Intent(this,MainActivity.class);
+//                mIntent.putExtra("position", 2);
+//                startActivity(mIntent);
+//                break;
+            case R.id.nav_website:
+                String url = "https://www.dypic.in/dypsoe/";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                break;
+
         }
         return true;
     }

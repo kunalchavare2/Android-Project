@@ -89,7 +89,7 @@ public class AddFaculty extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //to avoid inserting "Select category" in department variable
-                department = position > 0 ? addFacultyDepartment.getSelectedItem().toString() : "";
+                department = addFacultyDepartment.getSelectedItem().toString();
             }
 
             @Override
@@ -122,9 +122,9 @@ public class AddFaculty extends AppCompatActivity {
                 if (validate()) {
                     //this is used to check whether faculty image is selected from local
                     //Storage if yes then upload image to firebase
-                    if(facultyImage != null){
+                    if (facultyImage != null) {
                         uploadImage();
-                    }else{
+                    } else {
 
                         uploadData();
                     }
@@ -153,7 +153,7 @@ public class AddFaculty extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Toast.makeText(this, imagePath.toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, imagePath.toString(), Toast.LENGTH_SHORT).show();
 
                     //do something with the image (save it to some directory or whatever you need to do with it here)
                 }
@@ -167,11 +167,11 @@ public class AddFaculty extends AppCompatActivity {
         name = addFacultyName.getText().toString();
         email = addFacultyEmail.getText().toString();
         description = addFacultyDescription.getText().toString();
-        if (!name.isEmpty() && !email.isEmpty() && !description.isEmpty() && !department.isEmpty() && ( facultyImage != null || facultyImageUrl != null)) {
+        if (!name.isEmpty() && !email.isEmpty() && !description.isEmpty() && !department.isEmpty() && (facultyImage != null || facultyImageUrl != null)) {
             return true;
         }
 
-        if (facultyImage == null && facultyImageUrl ==null) {
+        if (facultyImage == null && facultyImageUrl == null) {
             errorString = "Image ";
         }
 
@@ -186,7 +186,7 @@ public class AddFaculty extends AppCompatActivity {
         if (description.isEmpty()) {
             addFacultyDescription.setError("Please Enter faculty Description.");
         }
-        if (department.isEmpty()) {
+        if (department.isEmpty() || department.equals("Select Category")) {
             if (facultyImage == null) {
                 errorString += "& Department";
             } else {
@@ -203,18 +203,20 @@ public class AddFaculty extends AppCompatActivity {
         databaseReference = databaseReference.child("Faculty");
         final String uniqueKey;
 
-        if(facultyKey != null){
-            if(downloadUrl.isEmpty()){
+        if (facultyKey != null) {
+            if (downloadUrl.isEmpty()) {
                 // set download url to previous image url get from update data
                 downloadUrl = facultyImageUrl;
             }
             uniqueKey = facultyKey;
-        }else{
+        } else {
             uniqueKey = databaseReference.push().getKey();
         }
-if(!facultyDepartment.equals(department)){
-    databaseReference.child(facultyDepartment).child(facultyKey).removeValue();
-}
+
+        if (facultyDepartment != null && !facultyDepartment.equals(department)) {
+            databaseReference.child(facultyDepartment).child(facultyKey).removeValue();
+        }
+
 
         Faculty faculty = new Faculty(name, email, description, department, downloadUrl, uniqueKey);
 

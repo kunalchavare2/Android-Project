@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:elevation="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -34,7 +35,7 @@
                 android:text="Collage Admin App"
                 android:layout_marginStart="16dp"
                 android:textSize="18sp"
-                android:textColor="@color/whiteTextColor"/>
+                android:textColor="@color/textColor"/>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/deleteNoticeBtn"
                 android:layout_width="0dp"
@@ -54,7 +55,7 @@
             android:layout_height="wrap_content"
             android:text="sfljsjflh;lasdhflsd"
             android:textSize="17sp"
-            android:textColor="@color/grey"/>
+            android:textColor="@color/primaryTextColor"/>
 
         <ImageView
             android:id="@+id/noticeImageView"

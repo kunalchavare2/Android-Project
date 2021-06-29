@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MaterialComponents.NoActionBar">
+        android:theme="@style/Theme.CollageApp">
         <activity android:name=".ebook.EbookActivity"></activity>
         <activity android:name=".ui.gallery.EventGallery" />
         <activity android:name=".ui.faculty.FacultyDetails" />

@@ -1,88 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UploadImage">
 
-
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/addImage"
-            android:layout_width="130dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
-            android:elevation="5dp">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Upload Event" />
 
-            <ImageView
-                android:id="@+id/eventImageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-            <LinearLayout
-                android:id="@+id/uploadIconWidget"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/addImage"
+                android:layout_width="130dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:elevation="5dp">
 
                 <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/circle_yellow"
-                    android:padding="15dp"
-                    android:src="@drawable/ic_add_image" />
-
-                <View
+                    android:id="@+id/eventImageView"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/lightGray" />
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:text="Upload Image"
+                <LinearLayout
+                    android:id="@+id/uploadIconWidget"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                    android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:background="@drawable/circle_yellow"
+                        android:padding="15dp"
+                        android:src="@drawable/ic_add_image" />
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/lightGray" />
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="5dp"
+                        android:text="Upload Image"
 
-        </com.google.android.material.card.MaterialCardView>
-
-
-        <Spinner
-            android:id="@+id/imageCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@android:color/transparent"
-            android:gravity="center"
-            android:spinnerMode="dropdown"
-
-            />
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/uploadImageBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Upload Image"
-            android:textAllCaps="false" />
+                        android:textStyle="bold" />
 
 
-    </LinearLayout>
+                </LinearLayout>
 
-</ScrollView>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <Spinner
+                android:id="@+id/imageCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:spinnerMode="dropdown"
+
+                />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/uploadImageBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Upload Image"
+                android:textAllCaps="false" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
